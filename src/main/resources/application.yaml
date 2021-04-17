@@ -1,0 +1,49 @@
+# 服务器相关配置
+server:
+  #端口号
+  port: 8989
+  servlet:
+    #项目名
+    #context-path: /cmfz
+    #jsp热部署
+    jsp:
+      init-parameters:
+        development: true
+# spring相关配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 111
+    url: jdbc:mysql://106.13.236.137:3306/cloud?characterEncoding=UTF-8
+    #jsp支持
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /
+      #redis相关配置
+  redis:
+    host: 106.13.236.137
+    port: 7000
+    database: 0
+    #es相关配置
+  data:
+    elasticsearch:
+      cluster-nodes: 192.168.0.131:9300
+  servlet:
+    multipart:
+      #上传文件大小
+      max-file-size: 50MB
+      max-request-size: 100MB
+  main:
+    #解决bean重复定义
+    allow-bean-definition-overriding: true
+# mybatis相关配置
+mybatis:
+  type-aliases-package: com.com.csw.entity
+  mapper-locations: classpath:com/com.csw/mapper/*Mapper.xml
+# 日志
+logging:
+  level:
+    com.csw.dao: debug
